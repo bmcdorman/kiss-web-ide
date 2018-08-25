@@ -1,0 +1,51 @@
+{
+  "name": "kiss-web-ide",
+  "version": "0.1.0",
+  "description": "The next-generation KIPR Instructional Software System for web browsers",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kipr/kiss-web-ide.git"
+  },
+  "author": "Braden McDorman",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/kipr/kiss-web-ide/issues"
+  },
+  "homepage": "https://github.com/kipr/kiss-web-ide#readme",
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/cookie-parser": "^1.4.1",
+    "@types/es6-promise": "^3.3.0",
+    "@types/express": "^4.16.0",
+    "@types/node": "^10.9.2",
+    "@types/react": "^16.4.11",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-router": "^4.0.30",
+    "@types/react-router-dom": "^4.3.0",
+    "@types/react-router-redux": "^5.0.15",
+    "@types/rx": "^4.1.1",
+    "@types/webpack": "^4.4.11",
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.0.1",
+    "webpack": "^4.17.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "fontawesome": "^4.7.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.0",
+    "rx": "^4.1.0",
+    "rxjs": "^6.2.2",
+    "source-map": "^0.7.3"
+  }
+}
