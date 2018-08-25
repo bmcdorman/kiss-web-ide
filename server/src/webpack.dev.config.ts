@@ -1,21 +1,17 @@
 import * as webpack from 'webpack';
 
+import projectPaths from './project-paths';
+import * as fs from 'fs';
 import * as path from 'path';
 
-const ROOT_DIR = path.join(__dirname, '..', '..');
-const BUILD_DIR = path.join(__dirname, 'build');
-const CLIENT_DIR = path.join(ROOT_DIR, 'client');
-const SERVER_DIR = path.join(ROOT_DIR, 'server');
-const STATIC_DIR = path.join(ROOT_DIR, 'static');
-
-const CLIENT_SRC_DIR = path.join(CLIENT_DIR, 'src');
+const MonacoEditorWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 export default {
   mode: 'development',
-  context: CLIENT_SRC_DIR,
-  entry: 'index.tsx',
+  context: projectPaths.client,
+  entry: './src/index.tsx',
   output: {
-    path: BUILD_DIR,
+    path: projectPaths.build,
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -23,11 +19,37 @@ export default {
     rules: [{
       test: /\.tsx?$/,
       use: [{
+        loader: 'babel-loader',
+        options: {
+          presets: [ '@babel/preset-env' ]
+        }
+      }, {
         loader: 'ts-loader'
+      }],
+      exclude: /node_modules/
+    }, {
+      test: /.less$/,
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader'
+      }, {
+        loader: 'less-loader'
+      }]
+    }, {
+      test: /.css$/,
+      use: [{
+        loader: 'css-loader'
+      }, {
+        loader: 'less-loader'
       }]
     }]
   },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ]
+  },
+  
   plugins: [
-    
+    new MonacoEditorWebpackPlugin()
   ]
 } as webpack.Configuration;
